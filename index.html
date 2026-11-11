@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f6eee8" />
+    <meta
+      name="description"
+      content="Цветы Pro Любовь — шаблон магазина букетов с доставкой по Новосибирску."
+    />
+    <title>Цветы Pro Любовь — доставка букетов в Новосибирске</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header wrap">
+      <a class="brand" href="#" aria-label="Цветы Pro Любовь — главная"
+        ><img src="logo.webp" alt="Логотип Цветы Pro Любовь" width="76" height="76" /><span
+          ><strong>Цветы Pro Любовь</strong><small>НОВОСИБИРСК</small></span
+        ></a
+      >
+      <nav aria-label="Основная навигация">
+        <a href="#catalog">Каталог</a><a href="#delivery">Доставка</a><a href="#about">О нас</a>
+      </nav>
+      <button class="cart-button" id="open-cart" aria-label="Открыть корзину">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 3h2l3 13h11l2-9H6M9 21h.01M18 21h.01" stroke-linecap="round" /></svg
+        ><span id="cart-count">0</span>
+      </button>
+    </header>
+    <main>
+      <section class="hero">
+        <img class="hero-image" src="hero.webp" alt="Нежный букет розовых роз и эвкалипта" />
+        <div class="wrap hero-inner">
+          <div>
+            <h1>Цветы, которые<br />говорят о любви</h1>
+            <p>Букеты с доставкой по Новосибирску</p>
+            <a class="button" href="#catalog"
+              >Выбрать букет
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true">
+                <path
+                  d="M5 15 15 5M5 5h10v10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section class="catalog wrap" id="catalog">
+        <h2>Выберите свой букет</h2>
+        <p class="demo-note">Пример каталога · фотографии, состав и цены для демонстрации</p>
+        <div class="filters" role="group" aria-label="Категории букетов">
+          <button class="selected" data-filter="all" aria-pressed="true">Все букеты</button
+          ><button data-filter="roses" aria-pressed="false">Розы</button
+          ><button data-filter="peonies" aria-pressed="false">Пионы</button
+          ><button data-filter="author" aria-pressed="false">Авторские</button>
+        </div>
+        <div class="products" id="products"></div>
+        <p class="catalog-foot">Маленький повод. Большие чувства.</p>
+      </section>
+      <section class="postcard-section" aria-labelledby="postcard-heading">
+        <div class="wrap postcard-inner">
+          <div class="postcard-copy">
+            <h2 id="postcard-heading">Пара слов от сердца</h2>
+            <p>
+              У каждого букета — своё послание. Выберите слова для открытки или напишите свои при
+              оформлении.
+            </p>
+            <div class="message-options" role="group" aria-label="Выбрать текст открытки">
+              <button
+                type="button"
+                data-message="Ты — мой самый красивый повод"
+                aria-pressed="true"
+              >
+                Про любовь</button
+              ><button
+                type="button"
+                data-message="Спасибо, что ты есть в моей жизни"
+                aria-pressed="false"
+              >
+                С благодарностью</button
+              ><button
+                type="button"
+                data-message="Пусть сегодня будет чуть больше счастья"
+                aria-pressed="false"
+              >
+                Просто так
+              </button>
+            </div>
+            <a href="#catalog" class="text-link" id="use-message"
+              >Сохранить слова и выбрать букет
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                aria-hidden="true"
+              >
+                <path
+                  d="M5 15 15 5M5 5h10v10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></a>
+          </div>
+          <div class="postcard-stage">
+            <div class="postcard">
+              <blockquote id="postcard-message" aria-live="polite">
+                Ты — мой самый красивый повод
+              </blockquote>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                aria-hidden="true"
+              >
+                <path d="M12 21s-9-5.8-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.2-9 12-9 12Z" /></svg
+              ><small>Цветы Pro Любовь</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="delivery" id="delivery">
+        <div class="wrap delivery-inner">
+          <div>
+            <span class="section-number">01 / ДОСТАВКА</span>
+            <h2>Доставляем<br />по Новосибирску</h2>
+            <p>Выберите район и удобную дату при оформлении заказа.</p>
+            <p class="muted">
+              Стоимость и интервалы доставки будут добавлены после согласования с магазином.
+            </p>
+          </div>
+          <ul id="district-list"></ul>
+        </div>
+      </section>
+      <section class="about wrap" id="about">
+        <span class="section-number">02 / ПРО ЛЮБОВЬ</span>
+        <h2>Когда хочется сказать<br />чуть больше</h2>
+        <p>«Спасибо», «скучаю», «ты — мой человек».<br />Для самых важных слов есть цветы.</p>
+        <a href="#catalog" class="button bouquet-cta"
+          ><span>Найти свой букет</span
+          ><svg
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            width="18"
+            height="18"
+            aria-hidden="true"
+          >
+            <path d="M5 15 15 5M5 5h10v10" stroke-linecap="round" stroke-linejoin="round" /></svg
+        ></a>
+      </section>
+    </main>
+    <footer class="wrap">
+      <a class="footer-brand" href="#">Цветы Pro Любовь</a><span>Новосибирск</span
+      ><span>Демонстрационный шаблон магазина</span>
+    </footer>
+    <dialog id="cart-dialog" aria-labelledby="cart-title">
+      <div class="dialog-shell">
+        <div class="dialog-head">
+          <h2 id="cart-title">Ваш букет</h2>
+          <button class="close" data-close aria-label="Закрыть корзину">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="m5 5 10 10M15 5 5 15" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+        <div id="cart-content"></div>
+        <form id="checkout" hidden>
+          <h3>Доставка</h3>
+          <div class="form-grid">
+            <label
+              >Ваше имя<input
+                name="customer"
+                autocomplete="name"
+                required
+                maxlength="80"
+                placeholder="Как к вам обращаться" /></label
+            ><label
+              >Ваш телефон<input
+                name="phone"
+                aria-describedby="phone-hint"
+                type="tel"
+                autocomplete="tel"
+                required
+                inputmode="tel"
+                maxlength="22"
+                placeholder="+7 (999) 123-45-67"
+              /><small class="form-hint" id="phone-hint"
+                >Российский номер: +7 и 10 цифр</small
+              ></label
+            ><label class="full"
+              >Район доставки<select name="district" id="district" required>
+                <option value="">Выберите район</option>
+              </select></label
+            ><label class="full"
+              >Адрес<input
+                name="address"
+                autocomplete="street-address"
+                required
+                minlength="5"
+                maxlength="200"
+                placeholder="Улица, дом, квартира, подъезд"
+            /></label>
+            <div class="delivery-date-field" id="delivery-date-field">
+              <span class="field-label" id="date-label">Дата доставки</span
+              ><input type="hidden" name="date" id="date" /><button
+                type="button"
+                class="date-trigger"
+                id="date-trigger"
+                aria-labelledby="date-label date-trigger-text"
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-controls="delivery-calendar"
+                aria-describedby="date-hint date-error"
+              >
+                <span id="date-trigger-text">Выберите дату</span
+                ><svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="4.5" width="14" height="13" rx="2" />
+                  <path d="M6.5 2.5v4M13.5 2.5v4M3 9h14" stroke-linecap="round" />
+                </svg></button
+              ><small class="form-hint" id="date-hint">Выберите доступный день в календаре</small
+              ><small id="date-error" class="date-error" role="alert" hidden
+                >Выберите доступную дату доставки</small
+              >
+              <div
+                id="delivery-calendar"
+                class="delivery-calendar"
+                role="dialog"
+                aria-label="Выбор даты доставки"
+                hidden
+              >
+                <div class="calendar-header">
+                  <button id="calendar-prev" type="button" aria-label="Предыдущий месяц">
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      aria-hidden="true"
+                    >
+                      <path d="m12 5-5 5 5 5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></button
+                  ><strong id="calendar-month" aria-live="polite"></strong
+                  ><button id="calendar-next" type="button" aria-label="Следующий месяц">
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      aria-hidden="true"
+                    >
+                      <path d="m8 5 5 5-5 5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+                <div role="grid" aria-labelledby="calendar-month">
+                  <div class="calendar-weekdays" role="row">
+                    <span role="columnheader">Пн</span><span role="columnheader">Вт</span
+                    ><span role="columnheader">Ср</span><span role="columnheader">Чт</span
+                    ><span role="columnheader">Пт</span><span role="columnheader">Сб</span
+                    ><span role="columnheader">Вс</span>
+                  </div>
+                  <div id="calendar-days" role="rowgroup"></div>
+                </div>
+                <p class="calendar-note">Время Новосибирска. Недоступные дни нельзя выбрать.</p>
+              </div>
+            </div>
+            <label
+              >Получатель<input
+                name="recipient"
+                maxlength="80"
+                placeholder="Имя получателя" /></label
+            ><label class="full"
+              >Пожелания и текст открытки<textarea
+                name="message"
+                rows="2"
+                maxlength="500"
+                placeholder="Напишите пару тёплых слов"
+              ></textarea>
+            </label>
+          </div>
+          <p class="delivery-note">
+            Стоимость доставки уточняется отдельно. Сейчас можно проверить оформление: данные никуда
+            не отправляются, деньги не списываются.
+          </p>
+          <button class="button wide" type="submit">
+            Посмотреть заказ
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M5 15 15 5M5 5h10v10" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </form>
+        <div id="confirmation" hidden></div>
+      </div>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
